@@ -1,3 +1,36 @@
+const startBtn = document.getElementById("startBtn");
+
+startBtn.onclick = () => {
+gsap.to("#intro-screen",{
+opacity:0,
+duration:1,
+onComplete:()=>{
+document.getElementById("intro-screen").style.display="none";
+}
+})
+}
+
+document.addEventListener("click",function(e){
+
+const heart = document.createElement("div");
+
+heart.innerHTML="💗";
+heart.style.position="fixed";
+heart.style.left=e.clientX+"px";
+heart.style.top=e.clientY+"px";
+heart.style.fontSize="30px";
+
+document.body.appendChild(heart);
+
+gsap.to(heart,{
+y:-150,
+opacity:0,
+duration:2,
+onComplete:()=>heart.remove()
+})
+
+})
+
 // Cursor following effect
 const cursor = document.querySelector('.cursor');
 document.addEventListener('mousemove', (e) => {
@@ -6,7 +39,7 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Typing effect for greeting
-const greetingText = "Hey You Know What! You're the most adorable human i ever met! 💖";
+const greetingText = "Nicole… hoy es un día muy especial, porque nació la persona que hace mis días más bonitos.  💖";
 const greetingElement = document.querySelector('.greeting');
 let charIndex = 0;
 
@@ -88,7 +121,7 @@ window.addEventListener('load', () => {
                 opacity: 0,
                 duration: 1,
                 onComplete: () => {
-                    window.location.href = 'cause.html'; // Replace with the actual URL of the next page
+                    window.location.href = 'porquetequiero.html'; // Replace with the actual URL of the next page
                 }
             });
         });

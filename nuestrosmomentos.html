@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#ff69b4">
+
+<title>Hermosos recuerdos ✨</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+min-height:100vh;
+background: linear-gradient(135deg,#ffd1dc,#e6e6fa,#ffefd5,#e6e6fa,#ffd1dc);
+background-size:400% 400%;
+animation:gradientFlow 15s ease infinite;
+font-family:'Quicksand',sans-serif;
+overflow-x:hidden;
+color:#4a4a4a;
+}
+
+@keyframes gradientFlow{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Sparkles */
+.magic-sparkles{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
+}
+
+.magic-sparkles::before,
+.magic-sparkles::after{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background-image:radial-gradient(circle, white 1px, transparent 1px);
+background-size:50px 50px;
+animation:sparkleLayer 8s linear infinite;
+opacity:0.5;
+}
+
+.magic-sparkles::after{
+animation-delay:-4s;
+transform:rotate(45deg);
+}
+
+@keyframes sparkleLayer{
+0%{transform:translateY(0);}
+100%{transform:translateY(-50px);}
+}
+
+/* Hearts */
+.floating-hearts{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:2;
+}
+
+.heart{
+position:absolute;
+font-size:1.5rem;
+color:rgba(255,105,180,0.6);
+animation:floatHeart var(--float-duration,6s) ease-in-out infinite;
+}
+
+@keyframes floatHeart{
+0%{transform:translate(0,100vh);}
+100%{transform:translate(0,-100vh);}
+}
+
+/* Welcome */
+.welcome{
+text-align:center;
+padding:4rem 2rem;
+z-index:3;
+position:relative;
+}
+
+.welcome h1{
+font-family:'Dancing Script';
+font-size:4rem;
+color:#ff69b4;
+}
+
+.welcome p{
+font-size:1.2rem;
+margin-top:1rem;
+}
+
+/* Cards */
+.memory-container{
+max-width:1200px;
+margin:auto;
+padding:2rem;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:2rem;
+}
+
+.memory-card{
+background:rgba(255,255,255,0.7);
+backdrop-filter:blur(10px);
+padding:15px;
+border-radius:10px;
+box-shadow:0 10px 20px rgba(0,0,0,0.15);
+transform:rotate(-2deg);
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.memory-card:nth-child(2){transform:rotate(2deg);}
+.memory-card:nth-child(3){transform:rotate(-1deg);}
+
+.memory-card:hover{
+transform:scale(1.05) rotate(0deg);
+}
+
+.memory-img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:1rem;
+transition:transform 0.4s ease;
+}
+
+.memory-date{
+font-family:'Dancing Script';
+color:#ff69b4;
+font-size:1.3rem;
+}
+
+.memory-caption{
+color:#555;
+}
+
+/* Final Message */
+.final-message{
+text-align:center;
+padding:4rem 2rem;
+background:rgba(255,255,255,0.3);
+backdrop-filter:blur(10px);
+}
+
+.final-message h2{
+font-family:'Dancing Script';
+font-size:3rem;
+color:#ff69b4;
+animation:heartbeat 2s infinite;
+}
+
+@keyframes heartbeat{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.1);}
+}
+
+.goodbye-btn{
+padding:1rem 2rem;
+background:linear-gradient(45deg,#ff69b4,#da70d6);
+border:none;
+border-radius:50px;
+color:white;
+cursor:pointer;
+}
+
+/* Counter */
+.love-counter{
+text-align:center;
+padding:40px;
+font-size:26px;
+color:#ff69b4;
+}
+
+.final-love{
+text-align:center;
+padding:60px;
+color:#ff69b4;
+}
+
+.final-love h1{
+font-size:40px;
+font-family:'Dancing Script';
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="magic-sparkles"></div>
+
+<div class="floating-hearts">
+<div class="heart">💖</div>
+<div class="heart">💗</div>
+<div class="heart">💕</div>
+</div>
+
+<section class="welcome">
+<h1>Nuestros Hermosos Momentos</h1>
+<p>Cada momento contigo se vuelve especial 💖</p>
+</section>
+
+<div class="memory-container">
+
+<div class="memory-card">
+<img src="./WhatsApp Image 2026-03-23 at 7.44.40 PM (1).jpeg" class="memory-img">
+<div class="memory-date">Tu sonrisa</div>
+<div class="memory-caption">Tu sonrisa tiene algo especial que siempre logra alegrarme el día. 
+Es una de las cosas que más me gustan de ti.</div>
+</div>
+
+<div class="memory-card">
+<img src="./WhatsApp Image 2026-03-23 at 7.44.40 PM (2).jpeg" class="memory-img">
+<div class="memory-date">Momentos contigo</div>
+<div class="memory-caption">Cada momento que paso contigo se convierte en un recuerdo que quiero guardar para siempre.
+Contigo incluso los momentos más simples se vuelven especiales.</div>
+</div>
+
+<div class="memory-card">
+<img src="./WhatsApp Image 2026-03-23 at 7.44.40 PM.jpeg" class="memory-img">
+<div class="memory-date">Eres especial</div>
+<div class="memory-caption">Admiro mucho la persona que eres y el esfuerzo que haces para salir adelante.
+Eres alguien muy especial.</div>
+</div>
+
+</div>
+
+<section class="final-message">
+<h2>Un mensaje para ti 💌</h2>
+
+<p> Nicole, quería hacer algo especial para tu cumpleaños, algo que te recordara lo importante que eres para mí. </p> 
+<p> Desde que llegaste a mi vida, muchas cosas se sienten más bonitas. Tu forma de ser, tu sonrisa y la manera en que ves la vida hacen que cada momento contigo sea especial. </p> 
+<p> Espero que este día esté lleno de alegría, de momentos lindos y de todo lo bueno que mereces. </p> 
+<p> Feliz cumpleaños Nicole. 💖 </p>
+
+</section>
+
+<section class="love-counter">
+<h2>Tiempo contigo 💕</h2>
+<p id="loveTimer"></p>
+</section>
+
+<section class="final-love">
+<h1>Nicole 💗</h1>
+<p> Todo este tiempo contigo ha sido uno de los regalos más bonitos que me ha dado la vida. </p> 
+<p> Gracias por cada sonrisa, cada momento y cada recuerdo que hemos creado juntos. </p> 
+<p> Espero que este sea solo el comienzo de muchos momentos más a tu lado. </p> 
+<h2>Te amo mucho ❤️</h2>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+
+const startDate=new Date("2025-05-31T00:00:00");
+
+function updateLoveTimer(){
+const now=new Date();
+const diff=now-startDate;
+
+const d=Math.floor(diff/86400000);
+const h=Math.floor(diff/3600000)%24;
+const m=Math.floor(diff/60000)%60;
+const s=Math.floor(diff/1000)%60;
+
+document.getElementById("loveTimer").innerHTML=
+`${d} días ${h}h ${m}m ${s}s`;
+}
+
+updateLoveTimer();
+setInterval(updateLoveTimer,1000);
+
+document.addEventListener("mousemove",(e)=>{
+document.querySelectorAll(".memory-img").forEach(img=>{
+const x=(window.innerWidth/2-e.clientX)/40;
+const y=(window.innerHeight/2-e.clientY)/40;
+img.style.transform=`translate(${x}px,${y}px)`;
+});
+});
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray(".memory-card").forEach(card=>{
+gsap.from(card,{
+opacity:0,
+y:80,
+duration:1,
+scrollTrigger:{
+trigger:card,
+start:"top 85%"
+}
+});
+});
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.innerHTML="💗";
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"vw";
+heart.style.bottom="0";
+heart.style.fontSize="24px";
+
+document.body.appendChild(heart);
+
+gsap.to(heart,{
+y:-800,
+opacity:0,
+duration:5,
+onComplete:()=>heart.remove()
+});
+}
+
+ScrollTrigger.create({
+trigger:".final-love",
+start:"top 80%",
+onEnter:()=>setInterval(createHeart,300)
+});
+
+});
+
+function createHeart(){
+
+const heart=document.createElement("div");
+heart.innerHTML="💗";
+heart.style.position="fixed";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize="30px";
+
+document.body.appendChild(heart);
+
+gsap.to(heart,{
+y:-600,
+opacity:0,
+duration:5,
+onComplete:()=>heart.remove()
+});
+
+}
+
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>

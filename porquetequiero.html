@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ff69b4">
+    <title>¿Por qué te amo?! 💖</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="./cause.css">
+    <style>
+       
+    </style>
+</head>
+<body>
+
+    <div class="floating-hearts"></div>
+    <div class="custom-cursor">
+        <svg viewBox="0 0 24 24">
+            <path fill="#ff69b4" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+    </div>
+
+    <div class="container">
+        <h1>Feliz cumpleaños Nicole 💖</h1>
+        
+        <div id="reasons-container"></div>
+        
+        <button class="shuffle-button">Presiona aquí... 💕</button>
+        <div class="reason-counter"></div>
+
+        
+    </div>
+
+    <section class="love-letter">
+<div class="envelope">
+    <div class="letter">
+        Nicole, gracias por cada momento contigo. 💗
+    </div>
+</div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="cause.js"></script>
+<script>
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+
+  // Posición aleatoria horizontal
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.bottom = "0px";
+
+  // Tamaño aleatorio (más realista)
+  heart.style.fontSize = (20 + Math.random() * 20) + "px";
+
+  document.body.appendChild(heart);
+
+  // Animación
+  gsap.to(heart, {
+    y: -800,
+    opacity: 0,
+    duration: 4 + Math.random() * 2,
+    ease: "power1.out",
+    onComplete: () => heart.remove()
+  });
+}
+
+// Lluvia continua
+setInterval(createHeart, 500);
+</script>
+</body>
+</html>
