@@ -76,14 +76,14 @@ function displayNewReason() {
                 duration: 0.5,
                 ease: "elastic.out",
                 onComplete: () => {
-                    shuffleButton.textContent = "Ingrese a nuestra historia 💫";
+                    shuffleButton.textContent = "Continua...";
                     shuffleButton.classList.add('story-mode');
                     shuffleButton.addEventListener('click', () => {
                         gsap.to('body', {
                             opacity: 0,
                             duration: 1,
                             onComplete: () => {
-                                window.location.href = 'nuestrosmomentos.html'; // Replace with the actual URL of the next page
+                                window.location.href = 'parati.html'; // Replace with the actual URL of the next page
                             }
                         });
                     });
