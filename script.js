@@ -121,7 +121,7 @@ window.addEventListener('load', () => {
                 opacity: 0,
                 duration: 1,
                 onComplete: () => {
-                    window.location.href = 'porquetequiero.html'; // Replace with the actual URL of the next page
+                    window.location.href = 'porqueteamo.html'; // Replace with the actual URL of the next page
                 }
             });
         });
